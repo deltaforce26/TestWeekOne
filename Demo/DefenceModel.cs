@@ -11,6 +11,7 @@ namespace Demo
         public int MinSeverity { get; set; }
         public int MaxSeverity { get; set; }
         public List<string> Defenses { get; set; }
+
     }
 
     internal class DefenceModelList
