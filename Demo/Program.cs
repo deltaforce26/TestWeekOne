@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using TestWeekOne.Models;
 
 namespace Demo
 {
@@ -15,6 +16,7 @@ namespace Demo
             {
                 bST.Insert(model);
             }
+
             bST.preOrder(bST.Root);
         }
     }

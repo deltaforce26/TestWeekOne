@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestWeekOne.Enums;
+using TestWeekOne.Models;
 
 namespace Demo
 {
@@ -59,6 +61,12 @@ namespace Demo
             }
             preOrder(node.Left);
             preOrder(node.Right);
+        }
+
+        public int CalcSeverity()
+        {
+            int severity = (Volume * Sophistication) + TargetValueEnum;
+            return severity;
         }
     }
 }
