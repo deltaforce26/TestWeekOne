@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestWeekOne.Enums;
-using TestWeekOne.Models;
 
-namespace Demo
+
+namespace TestWeekOne.Models
 {
     internal class BST
     {
@@ -55,7 +54,7 @@ namespace Demo
             {
                 return;
             }
-            foreach(string defence in node.DefenceModel.Defenses)
+            foreach (string defence in node.DefenceModel.Defenses)
             {
                 Console.WriteLine(defence);
             }
@@ -63,10 +62,29 @@ namespace Demo
             preOrder(node.Right);
         }
 
-        public int CalcSeverity()
+        public void PrintTree()
         {
-            int severity = (Volume * Sophistication) + TargetValueEnum;
-            return severity;
+            PrintTreeRec(Root, "", true, "Root");
+        }
+        private void PrintTreeRec(Node node, string indent, bool last, string position)
+        {
+            if (node != null)
+            {
+                Console.Write(indent);
+                if (last)
+                {
+                    Console.Write("└──");
+                    indent += " ";
+                }
+                else
+                {
+                    Console.Write("├──");
+                    indent += "| ";
+                }
+                Console.WriteLine($"{position}: [{node.DefenceModel.MinSeverity}-{node.DefenceModel.MaxSeverity}] Defenses: {string.Join(", ", node.DefenceModel.Defenses)}");
+                PrintTreeRec(node.Left, indent, false, "Left Child");
+                PrintTreeRec(node.Right, indent, true, "Right Child");
+            }
         }
     }
 }

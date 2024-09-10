@@ -7,9 +7,9 @@ namespace Demo
     {
         static void Main(string[] args)
         {
-            string json = File.ReadAllText("defenceStrategiesBalanced.json");
+            string defences = File.ReadAllText("defenceStrategiesBalanced.json");
 
-            List<DefenceModel> defenceModels = JsonConvert.DeserializeObject<List<DefenceModel>>(json);
+            List<DefenceModel> defenceModels = JsonConvert.DeserializeObject<List<DefenceModel>>(defences);
 
             BST bST = new BST();
             foreach (DefenceModel model in defenceModels)
@@ -17,7 +17,10 @@ namespace Demo
                 bST.Insert(model);
             }
 
-            bST.preOrder(bST.Root);
+            string threats = File.ReadAllText("threats.json");
+            List<Threat> thraetModels = JsonConvert.DeserializeObject<List<Threat>>(threats);
+            bST.PrintTree();
+            
         }
     }
 }

@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TestWeekOne.Models;
 
-namespace Demo
+namespace TestWeekOne.Models
 {
     internal class Node
     {
@@ -14,8 +13,8 @@ namespace Demo
         public Node? Right { get; set; }
         public Node(DefenceModel model)
         {
-            this.DefenceModel = model;
-            Left = Right = null; 
+            DefenceModel = model;
+            Left = Right = null;
         }
 
     }
